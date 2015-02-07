@@ -36,7 +36,8 @@ def dehtml(str):
             str = str[:i] + str[i+1:]
             i -= 1
         elif c == '—':
-            str = str[:i] + '-' + str[i+1:]
+            str = str[:i] + str[i+1:]
+            i -= 1
         i += 1
 
     return str
@@ -121,11 +122,16 @@ def generate_all(strings):
     m2.parse(strings[1])
     m3.parse(strings[2])
 
-    t_string = generate_title(m1)
-    a_string = generate_author(m2)
-    d_string = generate_description(m3)
+    t_string = kill_chars(generate_title(m1))
+    a_string = kill_chars(generate_author(m2))
+    d_string = kill_chars(generate_description(m3))
 
+    f = open("Untitled.rtf", "r")
 
+    stop_words = f.read()
+
+    while filter(None,t_string.split())[len(filter(None,t_string.split()))] in stop_words:
+        t_string = t_string.rsplit(' ', 1)[0]
 
     return (t_string,a_string,d_string)
 
@@ -155,6 +161,13 @@ def get_all_genres():
         genre_dict[genre.id] = genre.name
     return genre_dict
 
+def kill_chars(str):
+    i = 0
+    for c in str:
+        if c == '-' or c == '/' or c == '\"':
+            str = str[:i] + " " + str[i+1:]
+            i -= 1
+    return str
 
 def pkgen():
     """
