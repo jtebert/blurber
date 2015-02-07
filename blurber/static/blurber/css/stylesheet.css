@@ -1,0 +1,83 @@
+html {
+    font-family: 'robotoregular', sans-serif;
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'roboto_slabbold', serif;
+}
+
+html, body {
+    height: 100%;
+    background: #1abc9c;
+    color: #ecf0f1;
+    margin: 0;
+}
+
+:focus {
+    outline: none;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -8em; /* the bottom margin is the negative value of the footer's height */
+}
+
+#header {
+}
+#header #logo {
+    max-width: 100%;
+    padding: 3em;
+}
+
+#container {
+    width: 900px;
+    max-width: 100%;
+    margin: auto;
+}
+
+a.big-button-link, a.small-button-link {
+    display: block;
+    margin: 1em auto;
+    background: #f1c40f;
+    color: #ecf0f1;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    padding: .5em;
+}
+
+a.small-button-link {
+    font-size: 1em;
+    width: 18em;
+}
+
+a.big-button-link {
+    font-size: 1.5em;
+    width: 9em;
+}
+
+a.big-button-link:hover, a.small-button-link:hover {
+    background: #f39c12;
+}
+
+.box {
+    width: 50%;
+    min-width: 400px;
+    /*background: blue;
+    height: 100px;*/
+    float:left;
+    text-align: center;
+}
+
+.push {
+	height: 8em; /* .push must be the same height as .footer */
+}
+
+.footer {
+    height: 7em;
+    color: #000;
+    background: #ecf0f1;
+}

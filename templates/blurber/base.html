@@ -4,9 +4,32 @@
 <html>
 <head>
     <title>Blurber</title>
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/roboto/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/robotoslab_bold_macroman/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/robotoslab_light_macroman/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/robotoslab_regular_macroman/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/robotoslab_thin_macroman/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/fonts/droidsansmono_regular_macroman/stylesheet.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css"  href="{% static 'blurber/css/stylesheet.css' %}" />
+    <link rel="shortcut icon" href="{% static 'blurber/images/favicon.ico' %}"/>
 </head>
 <body>
-<h1>Blurber</h1>
-{% block content %}{% endblock %}
+
+<div class="wrapper">
+
+    <div id="header">
+        <img src="{% static 'blurber/images/logo.png' %}" id="logo" />
+    </div>
+
+    <div id="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="push"></div>
+</div>
+<div class="footer">
+    <p>Footer Text</p>
+</div>
 </body>
 </html>
