@@ -78,7 +78,7 @@ def generate_title(m):
     """
     def end(s):
         interpunction = ("\\")
-        if s[len(s)-1] in interpunction:
+        if s[len(s)-1] in interpunction or len(s.split()) > 10:
             return True
         else:
             return False
@@ -106,7 +106,7 @@ def generate_author(m):
     """
     def end(s):
         interpunction = ('\\')
-        if s[len(s)-1] in interpunction:
+        if s[len(s)-1] in interpunction or len(s.split()) > 10:
             return True
         else:
             return False
@@ -121,7 +121,7 @@ def generate_all(strings):
     """
     m1 = Markov(prob=True, level=1)
     m2 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=3)
+    m3 = Markov(prob=True, level=2)
 
     m1.parse(strings[0])
     m2.parse(strings[1])
