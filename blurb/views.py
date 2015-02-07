@@ -26,7 +26,7 @@ def random_blurb(request):
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
     title, author, descr = blurb.utils.generate_from_genre(genre)
-    genre_string = genre.name
+    genre_str = genre.name
 
     print "I AM HERE"
 
@@ -36,9 +36,11 @@ def genre_blurb(request, pk):
             form = SaveBlurb(request.POST)
             if form.is_valid():
                 print "FORM VALID"
-                new_blurg = form.save()
-                blurg_key = new_blurg.id
-                return HttpResponseRedirect(reverse("blurb:blurb_permalink", args=(blurg_key,)))
+                new_blurb = form.save()
+                print new_blurb
+                blurb_key = new_blurb.id
+                print blurb_key
+                return HttpResponseRedirect(reverse("blurb:blurb_permalink", args=(blurb_key,)))
             else:
                 print "INVALID FORM"
         else:
@@ -48,7 +50,7 @@ def genre_blurb(request, pk):
             'title': title,
             'author': author,
             'descr': descr,
-            'genre_string': genre_string,
+            'genre_str': genre_str,
         })
 
     return render(
@@ -56,7 +58,7 @@ def genre_blurb(request, pk):
             "title": title,
             "author": author,
             "descr": descr,
-            "genre_string": genre_string,
+            "genre_str": genre_str,
             "form": form,
         }
     )
