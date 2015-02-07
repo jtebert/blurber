@@ -48,7 +48,35 @@ def clean(data):
 
     return (m1, m2, m3)
 
+def generate_title(m):
+    def end(s):
+        interpunction = ("//")
+        if s[len(s)-1] in interpunction and len(s.split()) > 1:
+            return True
+        else:
+            return False
 
+    return m.generate(endf=end)
+
+def generate_description(m):
+    def end(s):
+        interpunction = (".", "!", "?")
+        if s[len(s)-1] in interpunction and len(s.split()) > 50:
+            return True
+        else:
+            return False
+
+    return m.generate(endf=end)
+
+def generate_author(m):
+    def end(s):
+        interpunction = ()
+        if s[len(s)-1] in interpunction and len(s.split()) > 1:
+            return True
+        else:
+            return False
+
+    return m.generate(endf=end)
 
 def pkgen():
     """
