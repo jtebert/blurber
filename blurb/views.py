@@ -22,7 +22,14 @@ def random_blurb(request):
 
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
-    # Use the genre's markov field to generate the book title, author, and blurb
+
+    # Create the Markov chain
+    # parse
+    # generate
+
+    utils.generate_all(utils.clean(list_of_tuples))
+
+
     title = "" # TODO: Fill these in from Markov results
     author = ""
     descr = ""

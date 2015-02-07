@@ -1,6 +1,41 @@
 # -*- coding: utf-8 -*-
+import blurb
+
 __author__ = 'mustafacamurcu'
 from PyMarkovTextGenerator import Markov
+def dehtml(str):
+    b = 0
+    i = 0
+    for c in str:
+        if c == '(' :
+            b += 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == ')':
+            b -= 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        if c == '<' :
+            b += 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '>':
+            b -= 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '\\':
+            b -= 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif b > 0:
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '—':
+            str = str[:i] + '-' + str[i+1:]
+        i += 1
+
+    return str
+
 
 def clean(data):
     """
@@ -22,15 +57,11 @@ def clean(data):
     for str in descriptions:
         d_string = d_string + " " + str
 
-    m1 = Markov(prob=True, level=1)
-    m2 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=1)
-
-    m1.parse(t_string)
-    m2.parse(a_string)
-    m3.parse(d_string)
+    t_string = dehtml(t_string)
+    a_string = dehtml(a_string)
+    d_string = dehtml(d_string)
     print "done cleaning"
-    return (m1, m2, m3)
+    return (t_string, a_string, d_string)
 
 def generate_title(m):
     def end(s):
@@ -62,10 +93,19 @@ def generate_author(m):
 
     return m.generate(endf=end)
 
-def generate_all(ms):
-    m1 = ms[0]
-    m2 = ms[1]
-    m3 = ms[2]
+def generate_all(strings):
+    """
+    :param strings: (all_titles, all_authors, all_descr)
+    :return: (new_title, new_author, new_descr)
+    Generate the random title/author/description using the Markov chains
+    """
+    m1 = Markov(prob=True, level=1)
+    m2 = Markov(prob=True, level=1)
+    m3 = Markov(prob=True, level=3)
+
+    m1.parse(strings[0])
+    m2.parse(strings[1])
+    m3.parse(strings[2])
 
     t_string = generate_title(m1)
     a_string = generate_author(m2)
