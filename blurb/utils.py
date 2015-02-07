@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 __author__ = 'mustafacamurcu'
 from PyMarkovTextGenerator import Markov
+
 
 def clean(data):
     """
@@ -24,6 +26,8 @@ def clean(data):
             elif b > 0:
                 str = str[:i] + str[i+1:]
                 i -= 1
+            elif c == '—':
+                str = str[:i] + '-' + str[i+1:]
             i += 1
 
     t_string = ""
@@ -79,13 +83,12 @@ def generate_author(m):
     return m.generate(endf=end)
 
 def generate_all(ms):
-    m1,m2,m3 = zip(*ms)
 
-    t_string = generate_title(m1)
-    a_string = generate_author(m2)
-    d_string = generate_description(m3)
+    t_string = generate_title(ms[0])
+    a_string = generate_author(ms[1])
+    d_string = generate_description(ms[2])
 
-    return t_string,a_string,d_string
+    return (t_string,a_string,d_string)
 
 
 
@@ -106,3 +109,26 @@ def pkgen():
         for rw in rude:
             if pk.find(rw) >= 0: bad_pk = True
     return pk
+
+def dehtml(str):
+    b = 0
+    i = 0
+    for c in str:
+        if c == '<' :
+            b += 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '>':
+            b -= 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif b > 0:
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '—':
+            str = str[:i] + '-' + str[i+1:]
+        i += 1
+
+    return str
+
+
