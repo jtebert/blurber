@@ -19,7 +19,7 @@ class Blurb(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     descr = models.TextField()
-    genre = models.CharField(max_length=50)
+    genre_str = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.title

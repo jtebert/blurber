@@ -8,7 +8,7 @@
     <!--<input type="hidden" name="title" value="{{ title }}"/>
     <input type="hidden" name="author" value="{{ author }}"/>
     <input type="hidden" name="descr" value="{{ descr }}"/>
-    <input type="hidden" name="genre" value="{{ genre }}"/>-->
+    <input type="hidden" name="genre" value="{{ genre_str }}"/>-->
 
     <a class="narrow-button-link" href="{% url 'index' %}">
         <span><i class="fa fa-arrow-left fa-fw"></i> Go Back</span>
@@ -21,11 +21,13 @@
         <i class="fa fa-link fa-fw"></i> Link to Blurb
     </button>
 
+    {{ form }}
+
 </form>
 
     <h1>{{ title }}</h1>
     <h3>by {{ author }}</h3>
     <p>{{ descr }}</p>
-    <p class="genre"><i>Genre: {{ genre }}</i></p>
+    <p class="genre"><i>Genre: {{ genre_str }}</i></p>
 
 {% endblock %}
