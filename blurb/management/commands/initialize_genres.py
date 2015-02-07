@@ -1,4 +1,5 @@
 from django.core.management import BaseCommand
+from django.utils.text import slugify
 import blurb.amazon_api_for_books
 import blurb.utils as utils
 from blurb.models import Genre
@@ -20,7 +21,7 @@ class Command(BaseCommand):
 
         for genre_id in genre_dict.keys():
             genre_temp = Genre(
-                id = genre_id,
+                id = slugify(genre_names_dict[genre_id]),
                 name = genre_names_dict[genre_id],
                 title_options = genre_dict[genre_id][0],
                 author_options =  genre_dict[genre_id][1],
