@@ -82,8 +82,8 @@ def generate_all(ms):
     m1,m2,m3 = zip(*ms)
 
     t_string = generate_title(m1)
-    a_string = generate_author(m1)
-    d_string = generate_description(m1)
+    a_string = generate_author(m2)
+    d_string = generate_description(m3)
 
     return t_string,a_string,d_string
 
