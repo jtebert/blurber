@@ -1,0 +1,13 @@
+Django==1.7.4
+PyMarkovTextGenerator==1.0.2
+argparse==1.2.1
+dj-database-url==0.3.0
+dj-static==0.0.6
+django-bootstrap3==5.1.1
+django-toolbelt==0.0.1
+django-tools==0.25.1
+gunicorn==19.2.1
+psycopg2==2.5.4
+python-amazon-product-api==0.2.8
+static3==0.5.1
+wsgiref==0.1.2
