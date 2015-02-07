@@ -15,6 +15,11 @@
         <a href="#" class="small-button-link">Science Fiction & Fantasy</a>
         <a href="#" class="small-button-link">Romance</a>
         <a href="#" class="small-button-link">Self Help</a>
+
+        {% for genre_id, genre_name in genre_dict.items %}
+            <a href="{% url 'blurb:genre_blurb' pk=genre_id %}" class="small-button-link">{{ genre_name }}</a>
+        {% endfor %}
+
     </div>
     <div class="breaker"></div>
 {% endblock %}

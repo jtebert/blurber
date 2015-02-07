@@ -144,9 +144,15 @@ def generate_from_genre(genre):
 
 def get_all_genres():
     """
-    :return: Dictionary for all genres of {
+    :return: Dictionary for all genres of {genre_id, genre_name}
+    Get all genre info from the database
     """
-    pass
+    from blurb.models import Genre
+    all_genres = Genre.objects.all()
+    genre_dict = {}
+    for genre in all_genres:
+        genre_dict[genre.id] = genre.name
+    return genre_dict
 
 
 def pkgen():
