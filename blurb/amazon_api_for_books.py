@@ -64,5 +64,16 @@ def getCategoriesOfBooks(nodeid):
     return list_of_child_nodes
 
 
-
+def getGenreId_GenreName(nodeid):
+    print "Categories of books"
+    api = amazonproduct.API(cfg=config)
+    node_id = nodeid
+    result = api.browse_node_lookup(node_id)
+    dict_of_child_nodes = {}
+    i = 0
+    for child in result.BrowseNodes.BrowseNode.Children.BrowseNode:
+        #print '%s (%s)' % (child.Name, child.BrowseNodeId)
+        dict_of_child_nodes[child.BrowseNodeId] = child.Name
+        i += 1
+    return dict_of_child_nodes
 
