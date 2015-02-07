@@ -65,9 +65,6 @@ def clean(data):
     for str in descriptions:
         d_string = d_string + " " + str
 
-    t_string = dehtml(t_string)
-    a_string = dehtml(a_string)
-    d_string = dehtml(d_string)
     #print "done cleaning"
     return (t_string, a_string, d_string)
 
@@ -83,7 +80,7 @@ def generate_title(m):
         else:
             return False
 
-    return m.generate(endf=end)
+    return dehtml(m.generate(endf=end))
 
 def generate_description(m):
     """
@@ -97,7 +94,7 @@ def generate_description(m):
         else:
             return False
 
-    return m.generate(endf=end)
+    return dehtml(m.generate(endf=end))
 
 def generate_author(m):
     """
@@ -111,7 +108,7 @@ def generate_author(m):
         else:
             return False
 
-    return m.generate(endf=end)
+    return dehtml(m.generate(endf=end))
 
 def generate_all(strings):
     """
@@ -121,7 +118,7 @@ def generate_all(strings):
     """
     m1 = Markov(prob=True, level=1)
     m2 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=2)
+    m3 = Markov(prob=True, level=1)
 
     m1.parse(strings[0])
     m2.parse(strings[1])
@@ -130,6 +127,8 @@ def generate_all(strings):
     t_string = generate_title(m1)
     a_string = generate_author(m2)
     d_string = generate_description(m3)
+
+
 
     return (t_string,a_string,d_string)
 
