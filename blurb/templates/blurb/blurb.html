@@ -2,6 +2,32 @@
 
 {% block content %}
 
+<a class="nav-link" href="{% url 'index' %}">
+    <i class="fa fa-arrow-left fa-fw"></i> Go Back
+</a>
 
+<form class="blurb_actions" method="POST" action="">
+    {% csrf_token %}
+
+    <!--<input type="hidden" name="title" value="{{ title }}"/>
+    <input type="hidden" name="author" value="{{ author }}"/>
+    <input type="hidden" name="descr" value="{{ descr }}"/>
+    <input type="hidden" name="genre" value="{{ genre }}"/>-->
+
+    <button type="submit" name="new_blurb">
+        <i class="fa fa-star fa-fw"></i> New Blurb
+    </button>
+    <button type="submit" name="save_blurb">
+        <i class="fa fa-link fa-fw"></i> Link to Blurb
+    </button>
+
+</form>
+
+<div class="blurb-space">
+    <h1>{{ title }}</h1>
+    <h3>by {{ author }}</h3>
+    <p>{{ descr }}</p>
+    <p class="genre"><i>Genre: {{ genre }}</i></p>
+</div>
 
 {% endblock %}
