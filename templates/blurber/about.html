@@ -1,0 +1,22 @@
+{% extends "blurber/base.html" %}
+
+{% block content %}
+
+    <a class="nav-link" href="{% url 'index' %}">
+        <i class="fa fa-arrow-left fa-fw"></i> Go Back
+    </a>
+
+    <h1>How it works</h1>
+
+    <p>Amazon sells millions of different books, each of which comes with a blurb. We pulled hundreds or thousands of books (I'm not even sure any more) from these vast depths and analyzed their contents. We used a technique called <a href="http://en.wikipedia.org/wiki/Markov_chain">Markov chains</a>, to generate guesses of what words will come next in a sequence. String these predictions together and you come up with something surprisingly coherent and usually humorous.</p>
+    <p>If you're interested in seeing more precisely what we did for this project, you can check out all of the source code on <a href="https://github.com/jtebert/blurber">Github</a>. (And please excuse its state of disarray; remember that the whole thing was written in less than two days and mostly fueled by caffeine, sugar, and salt.)</p>
+
+    <h1>Okay, but why?</h1>
+
+    <p>Because we felt like it! In the midst of all the serious projects, we wanted to do something manageable and fun that we could pull off in a weekend. This is also a project that (for some inexplicable reason) has been on my todo list for ages.</p>
+
+    <h1>Who we are</h1>
+
+    <p>This app was created under the auspices of <a href="http://hackbeanpot.com/">HackBeanpot 2015</a> by Julia Ebert, Mustafa Camurcu, and Shreyas Mahimkar.</p>
+
+{% endblock %}

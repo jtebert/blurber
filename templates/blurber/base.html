@@ -30,12 +30,21 @@
 </div>
 <div class="footer">
     <div class="footer-content">
-        <ul class="media-icons">
-            <li><i class="fa fa-github fa-fw fa-3x"></i></li>
-            <li><i class="fa fa-twitter fa-fw fa-3x"></i></li>
-            <li><i class="fa fa-facebook fa-fw fa-3x"></i></li>
-            <li>Nope</li>
+        <ul class="footer-list">
+            <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw fa-3x"></i></a></li>
+            <li><a href="mailto:blurber@juliaebert.com"><i class="fa fa-envelope fa-fw fa-3x"></i></a></li>
+            <li><a href="{% url 'about' %}"><i class="fa fa-info-circle fa-fw fa-3x"></i></a></li>
+            <li><a href="https://github.com/jtebert/blurber"><i class="fa fa-github fa-fw fa-3x"></i></a></li>
+            <li><a href="https://twitter.com/purpleblurber"><i class="fa fa-twitter fa-fw fa-3x"></i></a></li>
+
+            <!--<li><i class="fa fa-facebook fa-fw fa-3x"></i></li>-->
         </ul>
+        <!--<ul class="footer-list nav-bar">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="mailto:blurber@juliaebert.com">Contact</a></li>
+        </ul>-->
+        <p>&#169; 2015</p>
     </div>
 </div>
 </body>

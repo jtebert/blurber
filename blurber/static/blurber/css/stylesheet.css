@@ -7,6 +7,15 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'roboto_slabbold', serif;
 }
 
+a, a:visited {
+    color: #f1c40f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f39c12;
+}
+
 html, body {
     height: 100%;
     //background: #1abc9c;
@@ -23,7 +32,7 @@ html, body {
 	min-height: 100%;
 	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
 	height: 100%;
-	margin: 0 auto -8em; /* the bottom margin is the negative value of the footer's height */
+	margin: 0 auto -10em; /* the bottom margin is the negative value of the footer's height */
 }
 
 #header {
@@ -38,6 +47,7 @@ html, body {
     width: 900px;
     max-width: 100%;
     margin: auto;
+    margin-bottom: 2em;
 }
 
 a.big-button-link, a.small-button-link, a.narrow-button-link {
@@ -75,12 +85,12 @@ a.nav-link {
     margin: 1em 1em 1em 0;
     font-size: 1.2em;
     font-weight: bold;
-    color: #ecf0f1;
+    //color: #ecf0f1;
     text-decoration: none;
 }
 
 a.nav-link:hover {
-    color: #f1c40f;
+    //color: #f1c40f;
 }
 
 a.big-button-link:hover, a.small-button-link:hover, a.narrow-button-link:hover {
@@ -101,8 +111,12 @@ button[type=submit] {
     border: none;
 }
 
+button[type=submit]:hover {
+    background: #f39c12;
+}
+
 .genre {
-    color: #95a5a6;
+    color: #bdc3c7;
     font-size: 0.95em;
 }
 
@@ -127,25 +141,47 @@ button[type=submit] {
     margin-top: 0;
 }
 
+.breaker {
+    clear: both;
+}
+
 .push {
-	height: 8em; /* .push must be the same height as .footer */
+	height: 10em; /* .push must be the same height as .footer */
 }
 
 .footer {
-    height: 7em;
+    height: 9em;
     background: #9b59b6;
 }
 
 .footer-content {
-    padding: .01em;
+
     width: 900px;
     max-width: 100%;
     margin: auto;
     //border: 1px solid red;
 }
 
-.media-icons li {
+.footer-list {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.footer-list li {
     display: inline;
-    padding: 1em 0;
+    padding: 0 .5em;
     list-style: none;
+}
+
+.footer-list li a, .footer-list li a:visited {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-list li a:hover {
+    color: #f1c40f;
+}
+
+.nav-bar li {
+    padding: 0 1em;
 }

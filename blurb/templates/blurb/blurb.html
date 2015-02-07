@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<a class="nav-link" href="{% url 'index' %}">
-    <i class="fa fa-arrow-left fa-fw"></i> Go Back
-</a>
-
 <form class="blurb_actions" method="POST" action="">
     {% csrf_token %}
+
+    <a class="nav-link" href="{% url 'index' %}">
+        <i class="fa fa-arrow-left fa-fw"></i> Go Back
+    </a>
 
     <!--<input type="hidden" name="title" value="{{ title }}"/>
     <input type="hidden" name="author" value="{{ author }}"/>
@@ -23,11 +23,9 @@
 
 </form>
 
-<div class="blurb-space">
     <h1>{{ title }}</h1>
     <h3>by {{ author }}</h3>
     <p>{{ descr }}</p>
     <p class="genre"><i>Genre: {{ genre }}</i></p>
-</div>
 
 {% endblock %}
