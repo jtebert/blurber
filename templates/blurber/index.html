@@ -16,8 +16,8 @@
         <a href="#" class="small-button-link">Romance</a>
         <a href="#" class="small-button-link">Self Help</a>-->
 
-        {% for genre_id, genre_name in genre_dict.items %}
-            <a href="{% url 'blurb:genre_blurb' pk=genre_id %}" class="small-button-link">{{ genre_name }}</a>
+        {% for genre in genres %}
+            <a href="{% url 'blurb:genre_blurb' pk=genre.0 %}" class="small-button-link">{{ genre.1 }}</a>
         {% endfor %}
 
     </div>

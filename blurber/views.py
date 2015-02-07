@@ -5,13 +5,13 @@ from blurb import utils
 
 def index(request):
     genre_dict = utils.get_all_genres()
-    print genre_dict
-    #genre_dict2 = {"25": genre_dict["25"]}
-    #genre_dict = genre_dict2
+    sorted_genres = genre_dict.items()
+    sorted_genres = sorted(sorted_genres, key=lambda x: x[1])
+    print sorted_genres
 
     return render(
         request, 'blurber/index.html', {
-            'genre_dict': genre_dict,
+            'genres': sorted_genres,
         }
     )
 
