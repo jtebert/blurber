@@ -20,17 +20,14 @@ def getBooksFromAmazon():
     :return: Dictionary of {genre_id: [(title, author, descr)...]
     Retrieve the book data from Amazon with the API
     """
-    num_records = 20
+    num_records = 4
     genre_dict = getGenreId_GenreName(1000)
     node_ids_genre = genre_dict.keys()
     #node_ids_genre = [25]
     books_dict = {}
-    print "hi"
-    print node_ids_genre
     api = amazonproduct.API(cfg=config)
     for alphabet in node_ids_genre:
         allbookscount = 0
-        print alphabet
         lst_tuple = []
         #Expand the data set to thousands
         #inner_children = getCategoriesOfBooks(alphabet)
@@ -52,14 +49,13 @@ def getBooksFromAmazon():
             lst_tuple.insert(count, tup)
             count += 1
             allbookscount += 1
-            if allbookscount >= 20:
+            if allbookscount >= num_records:
                 break
         books_dict[alphabet] = lst_tuple
     return books_dict
 
 
 def getCategoriesOfBooks(nodeid):
-    print "Categories of books"
     api = amazonproduct.API(cfg=config)
     node_id = nodeid
     result = api.browse_node_lookup(node_id)
@@ -74,7 +70,6 @@ def getCategoriesOfBooks(nodeid):
 
 def getGenreId_GenreName(nodeid):
     # Call with 1000 as input
-    print "Categories of books"
     api = amazonproduct.API(cfg=config)
     node_id = nodeid
     result = api.browse_node_lookup(node_id)
@@ -84,7 +79,5 @@ def getGenreId_GenreName(nodeid):
         #print '%s (%s)' % (child.Name, child.BrowseNodeId)
         dict_of_child_nodes[child.BrowseNodeId] = child.Name
         i += 1
-    print "IDS:"
-    print dict_of_child_nodes
     return dict_of_child_nodes
 

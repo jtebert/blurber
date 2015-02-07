@@ -50,9 +50,6 @@ def clean(data):
     """
     titles, authors, descriptions = zip(*data)
 
-    print "LENGTHS"
-    print len(authors)
-
     t_string = ""
     for str in titles:
         t_string = t_string + str + "\\ "
@@ -71,7 +68,7 @@ def clean(data):
     t_string = dehtml(t_string)
     a_string = dehtml(a_string)
     d_string = dehtml(d_string)
-    print "done cleaning"
+    #print "done cleaning"
     return (t_string, a_string, d_string)
 
 def generate_title(m):
@@ -144,7 +141,7 @@ def generate_from_genre(genre):
     """
     # Get random strings for a given genre
     strs = (genre.title_options, genre.author_options, genre.descr_options)
-    print strs
+    #print strs
 
     return generate_all(strs)
 
@@ -156,7 +153,7 @@ def get_all_genres():
     """
     from blurb.models import Genre
     all_genres = Genre.objects.all()
-    print all_genres
+    #print all_genres
     genre_dict = {}
     for genre in all_genres:
         genre_dict[genre.id] = genre.name

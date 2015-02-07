@@ -24,19 +24,6 @@ def random_blurb(request):
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
     title, author, descr = blurb.utils.generate_from_genre(genre)
-
-    print "HHHHHHHHHHHHHHHHHHHHHHHHHHELLLLOO"
-
-    # Create the Markov chain
-    # parse
-    # generate
-
-    #utils.generate_all(utils.clean(list_of_tuples))
-
-
-    #title = "" # TODO: Fill these in from Markov results
-    #author = ""
-    #descr = ""
     return render(
         request, 'blurb/blurb.html', {
             "title": title,
