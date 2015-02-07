@@ -6,10 +6,9 @@ from utils import pkgen
 class Genre(models.Model):
     id = models.SlugField(max_length=50, primary_key=True)
     name = models.CharField(max_length=100)
-    # Have to pickle Markov objects before passing to constructor
-    title_markov_chain = models.BinaryField()
-    author_markov_chain = models.BinaryField()
-    descr_markov_chain = models.BinaryField()
+    title_options = models.TextField()
+    author_options = models.TextField()
+    descr_options = models.TextField()
 
     def __unicode__(self):
         return self.name
