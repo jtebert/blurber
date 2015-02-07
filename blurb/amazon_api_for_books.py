@@ -12,9 +12,13 @@ config = {
 }
 
 #hard coded for now. call -> getCategoriesOfBooks() for automating it.
-node_ids_genre = ["25"]
+node_ids_genre = ["25", "23"]
 # List of tuples [(title,author,desc),(title,author,desc), . . .]
 def getBooksFromAmazon():
+    """
+    :return: Dictionary of {genre_id: [(title, author, descr)...]
+    Retrieve the book data from Amazon with the API
+    """
     books_dict = {}
     print "hi"
     allbookscount = 0

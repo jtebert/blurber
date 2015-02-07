@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
-import blurb
-
 __author__ = 'mustafacamurcu'
 from PyMarkovTextGenerator import Markov
+
+
 def dehtml(str):
+    """
+    :param str: String to remove characters from
+    :return: String w/out unnecessary characters
+    Strip HTML tags from String
+    """
     b = 0
     i = 0
     for c in str:
@@ -40,8 +45,8 @@ def dehtml(str):
 def clean(data):
     """
     :param data: list of (title, author, blurb) tuples
-    :return: tuple of Markov chains for (title, author, blurb)
-    Strip HTML tags and parse each into Markov chain of appropriate depth
+    :return: tuple of Markov objects for (title, author, description)
+    Strip HTML tags and append all strings (with break characters) per category
     """
     titles, authors, descriptions = zip(*data)
 
@@ -64,6 +69,10 @@ def clean(data):
     return (t_string, a_string, d_string)
 
 def generate_title(m):
+    """
+    :param m: Markov object for title values
+    :return: String of newly generated title
+    """
     def end(s):
         interpunction = ("\\")
         if s[len(s)-1] in interpunction:
@@ -74,6 +83,10 @@ def generate_title(m):
     return m.generate(endf=end)
 
 def generate_description(m):
+    """
+    :param m: Markov object for description values
+    :return: String of newly generated title
+    """
     def end(s):
         interpunction = (".", "!", "?")
         if s[len(s)-1] in interpunction and len(s.split()) > 50:
@@ -84,6 +97,10 @@ def generate_description(m):
     return m.generate(endf=end)
 
 def generate_author(m):
+    """
+    :param m: Markov object for author values
+    :return: String of newly generated author
+    """
     def end(s):
         interpunction = ('\\')
         if s[len(s)-1] in interpunction:
@@ -114,6 +131,22 @@ def generate_all(strings):
     return (t_string,a_string,d_string)
 
 
+def generate_from_genre(genre):
+    """
+    :param genre: Genre model object
+    :return: newly generated tuple (title, author, description) for the genre
+    """
+    # Get random strings for a given genre
+    strs = (genre.title_options, genre.author_options, genre.descr_options)
+
+    return generate_all(strs)
+
+
+def get_all_genres():
+    """
+    :return: Dictionary for all genres of {
+    """
+    pass
 
 
 def pkgen():
@@ -132,5 +165,3 @@ def pkgen():
         for rw in rude:
             if pk.find(rw) >= 0: bad_pk = True
     return pk
-
-print '<' == '<'

@@ -27,7 +27,7 @@ def genre_blurb(request, pk):
     # parse
     # generate
 
-    utils.generate_all(utils.clean(list_of_tuples))
+    #utils.generate_all(utils.clean(list_of_tuples))
 
 
     title = "" # TODO: Fill these in from Markov results

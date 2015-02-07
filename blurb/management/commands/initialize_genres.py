@@ -13,6 +13,9 @@ class Command(BaseCommand):
             genre_dict[genre_id] = utils.clean(list_of_tuples)
         # Get genre names (need function)
         # Create Genre object and add to database
+        def genre_names():
+            names = {"23": "Sci-fi/Fantasy",
+                     "12":"Romance" }
 
         blurb1 = utils.generate_all(genre_dict["25"])
         print blurb1[0] +"\n"

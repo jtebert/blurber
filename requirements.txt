@@ -6,6 +6,7 @@ dj-static==0.0.6
 django-toolbelt==0.0.1
 django-tools==0.25.1
 gunicorn==19.2.1
+lxml==3.4.1
 psycopg2==2.5.4
 python-amazon-product-api==0.2.8
 static3==0.5.1
