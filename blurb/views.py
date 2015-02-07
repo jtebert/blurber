@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from models import Genre, Blurb
 from forms import *
+import blurb.utils
 
 # Create your views here.
 
@@ -22,6 +23,9 @@ def random_blurb(request):
 
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
+    title, author, descr = blurb.utils.generate_from_genre(genre)
+
+    print "HHHHHHHHHHHHHHHHHHHHHHHHHHELLLLOO"
 
     # Create the Markov chain
     # parse
@@ -30,9 +34,9 @@ def genre_blurb(request, pk):
     #utils.generate_all(utils.clean(list_of_tuples))
 
 
-    title = "" # TODO: Fill these in from Markov results
-    author = ""
-    descr = ""
+    #title = "" # TODO: Fill these in from Markov results
+    #author = ""
+    #descr = ""
     return render(
         request, 'blurb/blurb.html', {
             "title": title,

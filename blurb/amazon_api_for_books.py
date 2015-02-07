@@ -3,6 +3,7 @@
 import amazonproduct
 import utils
 import blurb.utils
+import time
 
 config = {
     'access_key': 'AKIAJAEPJ2CLFMQOKA5A',
@@ -12,39 +13,46 @@ config = {
 }
 
 #hard coded for now. call -> getCategoriesOfBooks() for automating it.
-node_ids_genre = ["25", "23"]
+# node_ids_genre = ["25", "23"]
 # List of tuples [(title,author,desc),(title,author,desc), . . .]
 def getBooksFromAmazon():
     """
     :return: Dictionary of {genre_id: [(title, author, descr)...]
     Retrieve the book data from Amazon with the API
     """
+    num_records = 20
+    genre_dict = getGenreId_GenreName(1000)
+    node_ids_genre = genre_dict.keys()
+    #node_ids_genre = [25]
     books_dict = {}
     print "hi"
-    allbookscount = 0
+    print node_ids_genre
     api = amazonproduct.API(cfg=config)
     for alphabet in node_ids_genre:
+        allbookscount = 0
+        print alphabet
         lst_tuple = []
         #Expand the data set to thousands
-        inner_children = getCategoriesOfBooks(alphabet)
-        for child in inner_children:
-            items = api.item_search('Books', BrowseNode=child,ResponseGroup="EditorialReview,ItemAttributes,BrowseNodes")
-            tup = ()
-            count = 0
-            for book in items:
-                #print '%s' % book.EditorialReviews.EditorialReview.Content
-                #print '%s: "%s"' % (book.ItemAttributes.Author,book.ItemAttributes.Title)
-                try:
-                    tup = (book.ItemAttributes.Title, book.ItemAttributes.Author, blurb.utils.dehtml(book.EditorialReviews.EditorialReview.Content))
-                except AttributeError:
-                    continue
+        #inner_children = getCategoriesOfBooks(alphabet)
+        #for child in inner_children:
+        time.sleep(1)
+        items = api.item_search('Books', BrowseNode=alphabet,ResponseGroup="EditorialReview,ItemAttributes,BrowseNodes")
+        tup = ()
+        count = 0
+        #if(len(items) < 3):
+        #    continue
+        for book in items:
+            #print '%s' % book.EditorialReviews.EditorialReview.Content
+            #print '%s: "%s"' % (book.ItemAttributes.Author,book.ItemAttributes.Title)
+            try:
+                tup = (book.ItemAttributes.Title, book.ItemAttributes.Author, blurb.utils.dehtml(book.EditorialReviews.EditorialReview.Content))
+            except AttributeError:
+                continue
 
-                lst_tuple.insert(count, tup)
-                count += 1
-                allbookscount += 1
-                if allbookscount >= 100:
-                    break
-            if allbookscount >= 100:
+            lst_tuple.insert(count, tup)
+            count += 1
+            allbookscount += 1
+            if allbookscount >= 20:
                 break
         books_dict[alphabet] = lst_tuple
     return books_dict
@@ -65,6 +73,7 @@ def getCategoriesOfBooks(nodeid):
 
 
 def getGenreId_GenreName(nodeid):
+    # Call with 1000 as input
     print "Categories of books"
     api = amazonproduct.API(cfg=config)
     node_id = nodeid
@@ -75,5 +84,7 @@ def getGenreId_GenreName(nodeid):
         #print '%s (%s)' % (child.Name, child.BrowseNodeId)
         dict_of_child_nodes[child.BrowseNodeId] = child.Name
         i += 1
+    print "IDS:"
+    print dict_of_child_nodes
     return dict_of_child_nodes
 
