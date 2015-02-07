@@ -1,4 +1,4 @@
 *.pyc
 staticfiles
-.idea/workspace.xml
+.idea/
 *~
