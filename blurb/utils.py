@@ -131,4 +131,22 @@ def dehtml(str):
 
     return str
 
+def deparen(str):
+    b = 0
+    i = 0
+    for c in str:
+        if c == '(' :
+            b += 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == ')':
+            b -= 1
+            str = str[:i] + str[i+1:]
+            i -= 1
+        elif c == '—':
+            str = str[:i] + '-' + str[i+1:]
+        i += 1
+
+    return str
+
 
