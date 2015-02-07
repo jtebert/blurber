@@ -26,7 +26,7 @@ def random_blurb(request):
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
     title, author, descr = blurb.utils.generate_from_genre(genre)
-    genre_str = genre.name
+    genre_string = genre.name
 
     print "I AM HERE"
 
@@ -48,7 +48,7 @@ def genre_blurb(request, pk):
             'title': title,
             'author': author,
             'descr': descr,
-            'genre_str': genre_str,
+            'genre_string': genre_string,
         })
 
     return render(
@@ -56,7 +56,7 @@ def genre_blurb(request, pk):
             "title": title,
             "author": author,
             "descr": descr,
-            "genre_str": genre_str,
+            "genre_string": genre_string,
             "form": form,
         }
     )

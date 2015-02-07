@@ -126,8 +126,10 @@ def generate_all(strings):
     a_string = kill_chars(generate_author(m2))
     d_string = kill_chars(generate_description(m3))
 
-    while filter(None,t_string.split())[len(filter(None,t_string.split()))] in stop_words:
-        t_string = t_string.rsplit(' ', 1)[0]
+    t_list = t_string.split()
+    while t_list[-1] in stop_words:
+        t_list = t_list[0:-1]
+    t_string = " ".join(t_list)
 
     return (t_string,a_string,d_string)
 
@@ -182,7 +184,7 @@ def pkgen():
             if pk.find(rw) >= 0: bad_pk = True
     return pk
 
-str = "a about above after again against all am an and any are aren't as at be because been before being below between " \
+stop_words_str = "a about above after again against all am an and any are aren't as at be because been before being below between " \
       "both but by can't cannot could couldn't did didn't do does doesn't doing don't down during each few for from " \
       "further had hadn't has hasn't have haven't having he he'd he'll he's her here here's hers herself him himself " \
       "his how how's i i'd i'll i'm i've if in into is isn't it it's its itself let's me more most mustn't my myself no " \
@@ -191,6 +193,6 @@ str = "a about above after again against all am an and any are aren't as at be b
       "they'd they'll they're they've this those through to too under until up very was wasn't we we'd we'll we're we've " \
       "were weren't what what's when when's where where's which while who who's whom why why's with won't would wouldn't " \
       "you you'd you'll you're you've your yours yourself yourselves"
-stop_words = str.split()
+stop_words = stop_words_str.split()
 
 print stop_words
