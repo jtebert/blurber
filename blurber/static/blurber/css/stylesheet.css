@@ -1,4 +1,4 @@
-html {
+html, button {
     font-family: 'robotoregular', sans-serif;
     font-size: 1em;
 }
@@ -12,7 +12,7 @@ a, a:visited {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a:active {
     color: #f39c12;
 }
 
@@ -45,6 +45,7 @@ html, body {
 
 #container {
     width: 900px;
+    padding: 1em;
     max-width: 100%;
     margin: auto;
     margin-bottom: 2em;
@@ -67,8 +68,13 @@ a.big-button-link, a.small-button-link {
 
 a.narrow-button-link {
     font-size: 1.2em;
-    width: 10em;
+    width: 9em;
     display: inline-block;
+}
+
+a.narrow-button-link span {
+    margin: 0;
+    padding: 0;
 }
 
 a.small-button-link {
@@ -89,15 +95,15 @@ a.nav-link {
     text-decoration: none;
 }
 
-a.nav-link:hover {
+a.nav-link:hover, a.nav-link:active {
     //color: #f1c40f;
 }
 
-a.big-button-link:hover, a.small-button-link:hover, a.narrow-button-link:hover {
+a.big-button-link:hover, a.small-button-link:hover, a.narrow-button-link:hover, a.big-button-link:active, a.small-button-link:active, a.narrow-button-link:active {
     background: #f39c12;
 }
 
-button[type=submit] {
+button[type=submit], .test-button {
     margin: 1em 1em 1em 0;
     background: #f1c40f;
     color: #ecf0f1;
@@ -106,12 +112,12 @@ button[type=submit] {
     font-weight: bold;
     padding: .5em;
     font-size: 1.2em;
-    width: 10em;
+    width: 9em;
     display: inline-block;
     border: none;
 }
 
-button[type=submit]:hover {
+button[type=submit]:hover, button[type=submit]:active, .test-button:hover, .test-button:active {
     background: #f39c12;
 }
 
@@ -162,6 +168,10 @@ button[type=submit]:hover {
     //border: 1px solid red;
 }
 
+.footer-content p {
+    text-align: center;
+}
+
 .footer-list {
     text-align: center;
     padding-top: 1em;
@@ -178,7 +188,7 @@ button[type=submit]:hover {
     text-decoration: none;
 }
 
-.footer-list li a:hover {
+.footer-list li a:hover, .footer-list li a:active {
     color: #f1c40f;
 }
 
