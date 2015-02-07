@@ -4,6 +4,7 @@ import amazonproduct
 import utils
 import blurb.utils
 import time
+import random
 
 config = {
     'access_key': 'AKIAJAEPJ2CLFMQOKA5A',
