@@ -27,6 +27,7 @@ def getBooksFromAmazon():
     books_dict = {}
     api = amazonproduct.API(cfg=config)
     for alphabet in node_ids_genre:
+        print "Genre: " + str(alphabet)
         allbookscount = 0
         lst_tuple = []
         #Expand the data set to thousands

@@ -56,10 +56,7 @@ def clean(data):
 
     a_string = ""
     for str in authors:
-        #if len(filter(None, str.split(" "))) > 1:
         a_string = a_string + str + "\\ "
-        #else:
-         #   print "FAILUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUURE"
 
     d_string = ""
     for str in descriptions:

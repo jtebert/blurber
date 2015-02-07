@@ -18,13 +18,7 @@ class Command(BaseCommand):
         # Create Genre object and add to database
         genre_names_dict = blurb.amazon_api_for_books.getGenreId_GenreName(1000)
 
-        print genre_dict.keys()
-        print genre_names_dict.keys()
-
-
-
         for genre_id in genre_dict.keys():
-
             genre_temp = Genre(
                 id = genre_id,
                 name = genre_names_dict[genre_id],
@@ -33,13 +27,3 @@ class Command(BaseCommand):
                 descr_options = genre_dict[genre_id][2],
             )
             genre_temp.save()
-        print "-------------"
-        print Genre.objects.all()
-        print "---------------"
-
-        """
-        blurb1 = utils.generate_all(genre_dict["25"])
-        print blurb1[0] +"\n"
-        print blurb1[1] + "\n"
-        print blurb1[2] + "\n"
-        """

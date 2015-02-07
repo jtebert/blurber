@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from models import Genre, Blurb
 from forms import *
 import blurb.utils
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 # Create your views here.
 
@@ -24,11 +26,38 @@ def random_blurb(request):
 def genre_blurb(request, pk):
     genre = get_object_or_404(Genre, pk=pk)
     title, author, descr = blurb.utils.generate_from_genre(genre)
+    genre_str = genre.name
+
+    print "I AM HERE"
+
+    if request.method == "POST":
+        if "save_blurb" in request.POST:
+            print "FOUND POST"
+            form = SaveBlurb(request.POST)
+            if form.is_valid():
+                print "FORM VALID"
+                new_blurg = form.save()
+                blurg_key = new_blurg.id
+                return HttpResponseRedirect(reverse("blurb:blurb_permalink", args=(blurg_key,)))
+            else:
+                print "INVALID FORM"
+        else:
+            return HttpResponseRedirect(reverse("blurb:genre_blurb", args=(pk,)))
+    else:
+        form = SaveBlurb(initial={
+            'title': title,
+            'author': author,
+            'descr': descr,
+            'genre_str': genre_str,
+        })
+
     return render(
         request, 'blurb/blurb.html', {
             "title": title,
             "author": author,
             "descr": descr,
+            "genre_str": genre_str,
+            "form": form,
         }
     )
 
@@ -37,11 +66,13 @@ def blurb_permalink(request, pk):
     title = ""  # TODO: Fill these in from correct Blurb
     author = ""
     descr = ""
+    genre_str = ""
     return render(
         request, 'blurb/blurb.html', {
             "title": title,
             "author": author,
             "descr": descr,
+            "genre_str": genre_str,
         }
     )
 
@@ -52,7 +83,7 @@ def temp_blurb(request):
     genre = "fake genre"  # Turn genre object into string w/ str
 
     if request.method == "POST":
-        form = SaveBlurb(request.post)
+        form = SaveBlurb(request.POST)
         if form.is_valid():
             # Process and save
             pass
