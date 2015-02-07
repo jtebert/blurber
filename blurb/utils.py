@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 __author__ = 'mustafacamurcu'
 from PyMarkovTextGenerator import Markov
 
@@ -9,39 +10,70 @@ def clean(data):
     """
     titles, authors, descriptions = zip(*data)
 
-    for str in descriptions:
-        b = 0
-        i = 0
-        for c in str:
-            if c == '<' :
-                b += 1
-                str = str[:i] + str[i+1:]
-                i -= 1
-            elif c == '>':
-                b -= 1
-                str = str[:i] + str[i+1:]
-                i -= 1
-            elif b > 0:
-                str = str[:i] + str[i+1:]
-                i -= 1
-            i += 1
+    t_string = ""
+    for str in titles:
+        t_string = t_string + str + "\\ "
+
+    a_string = ""
+    for str in authors:
+        a_string = a_string + "\\ " + str
 
     d_string = ""
     for str in descriptions:
         d_string = d_string + " " + str
 
-    t_string = ""
-    for str in titles:
-        t_string = t_string + "\\" + str
-
-    a_string = ""
-    for str in authors:
-        a_string = a_string + " " + str
-
     m1 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=3)
+    m2 = Markov(prob=True, level=1)
+    m3 = Markov(prob=True, level=1)
 
-    return (m1.parse(titles), m1.parse(authors), m3.parse(descriptions))
+    m1.parse(t_string)
+    m2.parse(a_string)
+    m3.parse(d_string)
+    print "done cleaning"
+    return (m1, m2, m3)
+
+def generate_title(m):
+    def end(s):
+        interpunction = ("\\")
+        if s[len(s)-1] in interpunction:
+            return True
+        else:
+            return False
+
+    return m.generate(endf=end)
+
+def generate_description(m):
+    def end(s):
+        interpunction = (".", "!", "?")
+        if s[len(s)-1] in interpunction and len(s.split()) > 50:
+            return True
+        else:
+            return False
+
+    return m.generate(endf=end)
+
+def generate_author(m):
+    def end(s):
+        interpunction = ('\\')
+        if s[len(s)-1] in interpunction:
+            return True
+        else:
+            return False
+
+    return m.generate(endf=end)
+
+def generate_all(ms):
+    m1 = ms[0]
+    m2 = ms[1]
+    m3 = ms[2]
+
+    t_string = generate_title(m1)
+    a_string = generate_author(m2)
+    d_string = generate_description(m3)
+
+    return (t_string,a_string,d_string)
+
+
 
 
 def pkgen():
@@ -60,3 +92,5 @@ def pkgen():
         for rw in rude:
             if pk.find(rw) >= 0: bad_pk = True
     return pk
+
+print '<' == '<'
