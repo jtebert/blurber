@@ -84,6 +84,10 @@ def getGenreId_GenreName(nodeid):
     return dict_of_child_nodes
 
 def getRandomBooks(all_genre_dict):
+    """
+    :param all_genre_dict: {genre_id, tuple list}
+    :return: [(titles, authors, descr)...]
+    """
     #print "Randomness"
     all_random_tuples = []
     i = 0
