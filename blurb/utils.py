@@ -26,25 +26,25 @@ def clean(data):
                 i -= 1
             i += 1
 
-    d_string = ""
-    for str in descriptions:
-        d_string = d_string + " " + str
-
     t_string = ""
     for str in titles:
-        t_string = t_string + "\\ " + str
+        t_string = t_string + str + "\\ "
 
     a_string = ""
     for str in authors:
         a_string = a_string + " " + str
 
+    d_string = ""
+    for str in descriptions:
+        d_string = d_string + " " + str
+
     m1 = Markov(prob=True, level=1)
     m2 = Markov(prob=True, level=1)
     m3 = Markov(prob=True, level=3)
 
-    m1.parse(titles)
-    m2.parse(authors)
-    m3.parse(descriptions)
+    m1.parse(t_string)
+    m2.parse(a_string)
+    m3.parse(d_string)
 
     return (m1, m2, m3)
 
@@ -77,6 +77,18 @@ def generate_author(m):
             return False
 
     return m.generate(endf=end)
+
+def generate_all(ms):
+    m1,m2,m3 = zip(*ms)
+
+    t_string = generate_title(m1)
+    a_string = generate_author(m1)
+    d_string = generate_description(m1)
+
+    return t_string,a_string,d_string
+
+
+
 
 def pkgen():
     """
