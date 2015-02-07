@@ -42,3 +42,21 @@ def clean(data):
     m3 = Markov(prob=True, level=3)
 
     return (m1.parse(titles), m1.parse(authors), m3.parse(descriptions))
+
+
+def pkgen():
+    """
+    :return: alphanumeric primary key (String)
+    Generate a random 6-digit primary key
+    """
+    from base64 import b32encode
+    from hashlib import sha1
+    from random import random
+    rude = ('fuck', 'shit', 'damn', 'bitch', 'hell',)
+    bad_pk = True
+    while bad_pk:
+        pk = b32encode(sha1(str(random())).digest()).lower()[:6]
+        bad_pk = False
+        for rw in rude:
+            if pk.find(rw) >= 0: bad_pk = True
+    return pk
