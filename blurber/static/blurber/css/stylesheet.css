@@ -9,7 +9,8 @@ h1, h2, h3, h4, h5, h6 {
 
 html, body {
     height: 100%;
-    background: #1abc9c;
+    //background: #1abc9c;
+    background: #8e44ad;
     color: #ecf0f1;
     margin: 0;
 }
@@ -78,6 +79,19 @@ a.big-button-link:hover, a.small-button-link:hover {
 
 .footer {
     height: 7em;
-    color: #000;
-    background: #ecf0f1;
+    background: #9b59b6;
+}
+
+.footer-content {
+    padding: .01em;
+    width: 900px;
+    max-width: 100%;
+    margin: auto;
+    //border: 1px solid red;
+}
+
+.media-icons li {
+    display: inline;
+    padding: 1em 0;
+    list-style: none;
 }

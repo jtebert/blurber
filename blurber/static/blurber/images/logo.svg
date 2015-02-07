@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.24748737"
-     inkscape:cx="2726.5604"
-     inkscape:cy="-1785.4572"
+     inkscape:cx="1413.3621"
+     inkscape:cy="-799.54835"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -76,7 +76,7 @@
        height="2491.1763"
        width="3820.4294"
        id="rect3018"
-       style="color:#000000;fill:#1abc9c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+       style="color:#000000;fill:#8e44ad;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20000000000000001;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -239,11 +239,11 @@
    style="fill:#f1c40f"
    id="tspan3961">er</tspan></tspan></text>
     <g
-       transform="matrix(1.4137356,0,0,1.4137356,-2231.5939,-125.34594)"
+       transform="matrix(1.4137356,0,0,1.4137356,-3552.8734,-707.19381)"
        id="g3024-8"
-       inkscape:export-filename="/home/jtebert/Copy/Projects/Programming/hackbeanpot/blurber/blurber/static/blurber/images/favicon.png"
-       inkscape:export-xdpi="7.52"
-       inkscape:export-ydpi="7.52">
+       inkscape:export-filename="/home/jtebert/Copy/Projects/Programming/hackbeanpot/blurber/blurber/static/blurber/images/icon.png"
+       inkscape:export-xdpi="35.25"
+       inkscape:export-ydpi="35.25">
       <path
          style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m 2058.1652,-223.81619 -229.1562,-149.96875 164.9495,-66.21657 229.1563,149.96875 z"
@@ -282,7 +282,7 @@
        y="602.34052"
        ry="0" />
     <rect
-       style="color:#000000;fill:#f1c40f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#f39c12;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.20000000000000001;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect3047-7"
        width="626.29456"
        height="214.15234"
@@ -291,7 +291,7 @@
        ry="0" />
     <text
        xml:space="preserve"
-       style="font-size:107.29714966px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
+       style="font-size:107.29714966000000231px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ecf0f1;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
        x="2226.302"
        y="454.03433"
        id="text3861"
@@ -622,5 +622,22 @@
            x="4691.1484"
            y="1244.7891" /></flowRegion><flowPara
          id="flowPara4211-2"
-         style="fill:#ecf0f1">Here we put a description of generally what this is and what it's doing.</flowPara></flowRoot>  </g>
+         style="fill:#ecf0f1">Here we put a description of generally what this is and what it's doing.</flowPara></flowRoot>    <text
+       sodipodi:linespacing="125%"
+       id="text3020-4"
+       y="-1000.034"
+       x="-137.81299"
+       style="font-size:40.57453537px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ecf0f1;fill-opacity:1;stroke:none;font-family:Aller;-inkscape-font-specification:Aller"
+       xml:space="preserve"
+       inkscape:export-filename="/home/jtebert/Copy/Projects/Programming/hackbeanpot/blurber/blurber/static/blurber/images/logo.png"
+       inkscape:export-xdpi="29.879999"
+       inkscape:export-ydpi="29.879999"><tspan
+         style="font-size:292.13665771px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ecf0f1;font-family:Roboto Slab;-inkscape-font-specification:Roboto Slab Bold"
+         y="-1000.034"
+         x="-137.81299"
+         id="tspan3022-2"
+         sodipodi:role="line">Blurb<tspan
+   style="fill:#f1c40f"
+   id="tspan3961-6">er</tspan></tspan></text>
+  </g>
 </svg>
