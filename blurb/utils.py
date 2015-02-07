@@ -32,13 +32,37 @@ def clean(data):
 
     t_string = ""
     for str in titles:
-        t_string = t_string + "\\" + str
+        t_string = t_string + "\\ " + str
 
     a_string = ""
     for str in authors:
         a_string = a_string + " " + str
 
     m1 = Markov(prob=True, level=1)
+    m2 = Markov(prob=True, level=1)
     m3 = Markov(prob=True, level=3)
 
-    return (m1.parse(titles), m1.parse(authors), m3.parse(descriptions))
+    m1.parse(titles)
+    m2.parse(authors)
+    m3.parse(descriptions)
+
+    return (m1, m2, m3)
+
+
+
+def pkgen():
+    """
+    :return: alphanumeric primary key (String)
+    Generate a random 6-digit primary key
+    """
+    from base64 import b32encode
+    from hashlib import sha1
+    from random import random
+    rude = ('fuck', 'shit', 'damn', 'bitch', 'hell',)
+    bad_pk = True
+    while bad_pk:
+        pk = b32encode(sha1(str(random())).digest()).lower()[:6]
+        bad_pk = False
+        for rw in rude:
+            if pk.find(rw) >= 0: bad_pk = True
+    return pk
