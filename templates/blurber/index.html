@@ -17,7 +17,7 @@
         <a href="#" class="small-button-link">Self Help</a>-->
 
         {% for genre in genres %}
-            <a href="{% url 'blurb:genre_blurb' slug=genre.slug %}" class="small-button-link">{{ genre.name }}</a>
+            <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link">{{ genre.name }}</a>
         {% endfor %}
 
     </div>

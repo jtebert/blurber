@@ -24,6 +24,7 @@ def random_blurb(request):
     )
 
 def genre_blurb(request, slug):
+    print slug
     test = Genre.objects.all().values("slug")
     print test[0]['slug']
     print slug
@@ -62,7 +63,7 @@ def genre_blurb(request, slug):
         }
     )
 
-def blurb_permalink(request, pk, slug):
+def blurb_permalink(request, pk):
     blurb = get_object_or_404(Blurb, pk=pk)
     return render(
         request, 'blurb/blurb.html', {

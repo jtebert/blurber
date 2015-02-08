@@ -126,6 +126,10 @@ def generate_all(strings):
     a_string = kill_chars(generate_author(m2))
     d_string = kill_chars(generate_description(m3))
 
+    t_string = generate_title(m1)
+    a_string = generate_author(m2)
+    d_string = generate_description(m3)
+
     t_list = t_string.split()
     while t_list[-1] in stop_words:
         t_list = t_list[0:-1]
@@ -159,22 +163,16 @@ def get_all_genres():
         genre_dict[genre.id] = genre.name
     return genre_dict
 
-def kill_chars(str2):
+def kill_chars(line):
     """
     :param str2: String
     :return: Cleaned String
     Removes specified characters from string (replaces with spaces)
     """
-    i = 0
-    for c in str2:
-        if c == '-' or c == '/' or c == '\"':
-            if i == 0:
-                str2 = str2[1:]
-                i -= 1
-            else:
-                str2 = str2[:i] + " " + str2[i+1:]
-                i -= 1
-    return str2
+    invalid_characters = '[-—/"”•"“]'
+
+    import re
+    line = re.sub(invalid_characters, '', line)
 
 def pkgen():
     """
