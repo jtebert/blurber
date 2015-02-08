@@ -116,7 +116,7 @@ def generate_all(strings):
     """
     m1 = Markov(prob=True, level=1)
     m2 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=1)
+    m3 = Markov(prob=True, level=2)
 
     m1.parse(strings[0])
     m2.parse(strings[1])
