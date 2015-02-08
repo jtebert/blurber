@@ -11,5 +11,18 @@ Built on the Amazon Product Advertising API and created with Markov Chains, you 
 - Generate a book blurb with a title, author, and book description
 - Choose a genre for your blurb or include all genres
 - Save and share your favorite blurbs with permalink URLs
+- API to create and save blurbs
 
-*Coming Soon: An API. We hope. Put your blurbs anywhere!*
+## API
+
+`http://blurber.herokuapp.com/api/genres/`
+
+Get the names and slugs of all available genres. (Random, incorporating all genres, is considered a genre.)
+
+`http://blurber.herokuapp.com/api/<genre_slug>/<save>/`
+
+Use the slug of a genre to generate a blurb. `<save>` is a 1 or 0 telling whether or not to save a permalink to the blurb on the site.
+
+`http://blurber.herokuapp.com/api/p/<pk>`
+
+Use the primary key <pk> of a blurb to retrieve the blurb.
