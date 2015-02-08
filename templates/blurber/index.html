@@ -5,21 +5,18 @@
 {% block content %}
     <p>Have you ever wanted to read about a book that doesn't exist? Or maybe you just think book descriptions are too logical.</p>
     <p>Here's a tool perfectly suited to your eccentricity! Just pick a genre and you'll receive a probably-but-not-guaranteed-to-be unique book blurb, built on descriptions of real, live, <i>actual</i> books. If you're feeling particularly ambitious, for extra credit you can go ahead and write the book you get a blurb for.</p>
-    <div class="box">
-        <h1>Make a random blurb:</h1>
-        <a href="#" class="big-button-link">Random Blurb</a>
-    </div>
-    <div class="box">
-        <h1>Pick a genre:</h1>
-        <!--Programatically generate these from the DB
-        <a href="#" class="small-button-link">Science Fiction & Fantasy</a>
-        <a href="#" class="small-button-link">Romance</a>
-        <a href="#" class="small-button-link">Self Help</a>-->
 
-        {% for genre in genres %}
-            <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link">{{ genre.name }}</a>
-        {% endfor %}
+    <a href="{% url 'blurb:genre_blurb' 'random' %}" class="big-button-link">Random Blurb</a>
 
+    <h1 class="centered">Pick a genre:</h1>
+    <div class="tile-box">
+    {% for genre in genres %}
+        <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link floater">
+            <span>{{ genre.name }}</span>
+        </a>
+    {% endfor %}
+    <div class="breaker"></div>
     </div>
+
     <div class="breaker"></div>
 {% endblock %}

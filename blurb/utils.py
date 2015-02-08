@@ -87,7 +87,7 @@ def generate_description(m):
     """
     def end(s):
         interpunction = (".", "!", "?")
-        if s[len(s)-1] in interpunction and len(s.split()) > 50:
+        if s[len(s)-1] in interpunction and len(s.split()) > 75:
             return True
         else:
             return False
@@ -126,9 +126,9 @@ def generate_all(strings):
     a_string = kill_chars(generate_author(m2))
     d_string = kill_chars(generate_description(m3))
 
-    t_string = generate_title(m1)
-    a_string = generate_author(m2)
-    d_string = generate_description(m3)
+    #t_string = generate_title(m1)
+    #a_string = generate_author(m2)
+    #d_string = generate_description(m3)
 
     t_list = t_string.split()
     while t_list[-1] in stop_words:
@@ -170,9 +170,17 @@ def kill_chars(line):
     Removes specified characters from string (replaces with spaces)
     """
 
-    invalid_characters = "[-—/\"”•\"“\']"
-    for c in invalid_characters:
-        line = line.replace(c,"")
+    orig_line = line
+
+    line = unicode(line)
+    invalid_characters = u"[/\"”•\"“]"
+    line = ''.join(c for c in line if c not in invalid_characters)
+    invalid_space = u"—"
+    line = ''.join([' ' if c in invalid_space else c for c in line])
+
+    #for c in invalid_characters:
+    #    line = line.replace(c,"")
+
 
     return line
 

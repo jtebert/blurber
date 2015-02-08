@@ -5,6 +5,7 @@ html, button {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'roboto_slabbold', serif;
+    font-weight: normal;
 }
 
 a, a:visited {
@@ -51,6 +52,10 @@ html, body {
     margin-bottom: 2em;
 }
 
+.tile-box {
+    background: #f1c40f;
+}
+
 a.big-button-link, a.small-button-link, a.narrow-button-link {
     margin: 1em 1em 1em 0;
     background: #f1c40f;
@@ -79,7 +84,19 @@ a.narrow-button-link span {
 
 a.small-button-link {
     font-size: 1em;
-    width: 18em;
+    width: 12em
+}
+a.small-button-link.floater {
+    float: left;
+    width: 25%;
+    padding:0;
+    margin: 0;
+    height: 3em;
+}
+a.small-button-link.floater span {
+    //border:1px solid red;
+    display: inline-block;
+    margin: .75em .5em;
 }
 
 a.big-button-link {
@@ -121,17 +138,16 @@ button[type=submit]:hover, button[type=submit]:active, .test-button:hover, .test
     background: #f39c12;
 }
 
+button[disabled], button[disabled]:hover {
+    background: #7f8c8d;
+}
+
 .genre {
     color: #bdc3c7;
     font-size: 0.95em;
 }
 
-.box {
-    width: 50%;
-    min-width: 400px;
-    /*background: blue;
-    height: 100px;*/
-    float:left;
+h1.centered {
     text-align: center;
 }
 
@@ -174,7 +190,7 @@ button[type=submit]:hover, button[type=submit]:active, .test-button:hover, .test
 
 .footer-list {
     text-align: center;
-    padding-top: 1em;
+    padding: 1.5em 0 .5em 0;
 }
 
 .footer-list li {

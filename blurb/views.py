@@ -60,16 +60,27 @@ def genre_blurb(request, slug):
             "descr": descr,
             "genre_str": genre_str,
             "form": form,
+            "show_permalinker": True,
         }
     )
 
 def blurb_permalink(request, pk):
     blurb = get_object_or_404(Blurb, pk=pk)
+
+    if request.method == "POST" and "new_blurb" in request.POST:
+        print "GOT HERE"
+        genre = Genre.objects.get(name=blurb.genre_str)
+        print genre
+        print genre.slug
+        return HttpResponseRedirect(reverse("blurb:genre_blurb",
+                                            kwargs={'slug': genre.slug}))
+
     return render(
         request, 'blurb/blurb.html', {
             "title": blurb.title,
             "author": blurb.author,
             "descr": blurb.descr,
             "genre_str": blurb.genre_str,
+            "show_permalinker": False,
         }
     )
