@@ -152,10 +152,12 @@ def get_all_genres():
     Get all genre info from the database
     """
     from blurb.models import Genre
-    all_genres = Genre.objects.all()
-    #print all_genres
+    genres = Genre.objects.all()
     genre_dict = {}
-    for genre in all_genres:
+    print "get AAAAALLLL the genres!!!!"
+    for genre in genres:
+        print "WWWWWWWWWWHEEEEEEEEEEEEEEEE"
+        print genre_dict[genre.id]
         genre_dict[genre.id] = genre.name
     return genre_dict
 

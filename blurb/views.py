@@ -28,21 +28,15 @@ def genre_blurb(request, pk):
     title, author, descr = blurb.utils.generate_from_genre(genre)
     genre_str = genre.name
 
-    print "I AM HERE"
-
     if request.method == "POST":
         if "save_blurb" in request.POST:
-            print "FOUND POST"
             form = SaveBlurb(request.POST)
             if form.is_valid():
-                print "FORM VALID"
                 new_blurb = form.save()
                 print new_blurb
                 blurb_key = new_blurb.id
                 print blurb_key
                 return HttpResponseRedirect(reverse("blurb:blurb_permalink", args=(blurb_key,)))
-            else:
-                print "INVALID FORM"
         else:
             return HttpResponseRedirect(reverse("blurb:genre_blurb", args=(pk,)))
     else:
