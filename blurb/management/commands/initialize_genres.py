@@ -23,7 +23,7 @@ class Command(BaseCommand):
         genre_names_dict = blurb.amazon_api_for_books.getGenreId_GenreName(1000)
 
         random_genre = Genre(
-            id = int(99999999),
+            id = 99999999,
             slug = slugify(u'random'),
             name = "Random",
             title_options = random_genre[0],
@@ -34,7 +34,7 @@ class Command(BaseCommand):
 
         for genre_id in genre_dict.keys():
             genre_temp = Genre(
-                id = int(genre_id),
+                id = genre_id,
                 slug = slugify(unicode(genre_names_dict[genre_id])),
                 name = genre_names_dict[genre_id],
                 title_options = genre_dict[genre_id][0],
