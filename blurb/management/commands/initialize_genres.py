@@ -24,7 +24,8 @@ class Command(BaseCommand):
 
         for genre_id in genre_dict.keys():
             genre_temp = Genre(
-                id = slugify(unicode(genre_names_dict[genre_id])),
+                id = genre_id,
+                slug = slugify(unicode(genre_names_dict[genre_id])),
                 name = genre_names_dict[genre_id],
                 title_options = genre_dict[genre_id][0],
                 author_options =  genre_dict[genre_id][1],
@@ -32,8 +33,9 @@ class Command(BaseCommand):
             )
             genre_temp.save()
         random_genre = Genre(
-            id=slugify(u'random'),
-            name="Random",
+            id = 99999999999,
+            slug = slugify(u'random'),
+            name = "Random",
             title_options = random_genre[0],
             author_options = random_genre[1],
             descr_options = random_genre[2],

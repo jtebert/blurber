@@ -23,8 +23,12 @@ def random_blurb(request):
         }
     )
 
-def genre_blurb(request, pk):
-    genre = get_object_or_404(Genre, pk=pk)
+def genre_blurb(request, slug):
+    test = Genre.objects.all().values("slug")
+    print test[0]['slug']
+    print slug
+
+    genre = get_object_or_404(Genre, slug=slug)
     title, author, descr = blurb.utils.generate_from_genre(genre)
     genre_str = genre.name
 
@@ -38,7 +42,8 @@ def genre_blurb(request, pk):
                 print blurb_key
                 return HttpResponseRedirect(reverse("blurb:blurb_permalink", args=(blurb_key,)))
         else:
-            return HttpResponseRedirect(reverse("blurb:genre_blurb", args=(pk,)))
+            return HttpResponseRedirect(reverse("blurb:genre_blurb",
+                                                kwargs={'slug': genre.slug}))
     else:
         form = SaveBlurb(initial={
             'title': title,
@@ -57,7 +62,7 @@ def genre_blurb(request, pk):
         }
     )
 
-def blurb_permalink(request, pk):
+def blurb_permalink(request, pk, slug):
     blurb = get_object_or_404(Blurb, pk=pk)
     return render(
         request, 'blurb/blurb.html', {
@@ -65,34 +70,5 @@ def blurb_permalink(request, pk):
             "author": blurb.author,
             "descr": blurb.descr,
             "genre_str": blurb.genre_str,
-        }
-    )
-
-def temp_blurb(request):
-    title = "This is a Title Test"
-    author = "Author Nameses"
-    descr = "Enim nesciunt in, cliche reprehenderit authentic selfies Intelligentsia irony ethical. American Apparel Godard fanny pack drinking vinegar selvage XOXO, ut Portland. Magna dolore cardigan slow-carb, fap High Life keytar skateboard lo-fi ugh Portland. Labore pork belly eu disrupt normcore placeat. Scenester vegan sunt, letterpress in vero commodo nesciunt locavore viral deep v PBR. Ugh PBR&B hashtag, small batch heirloom do asymmetrical farm-to-table forage XOXO minim street art Carles slow-carb distillery. Banjo next level High Life ut, lo-fi nulla consequat quis chillwave cred heirloom."
-    genre = "fake genre"  # Turn genre object into string w/ str
-
-    if request.method == "POST":
-        form = SaveBlurb(request.POST)
-        if form.is_valid():
-            # Process and save
-            pass
-    else:
-        form = SaveBlurb(initial={
-            'title': title,
-            'author': author,
-            'descr': descr,
-            'genre': genre
-        })
-
-    return render(
-        request, 'blurb/blurb.html', {
-            "title": title,
-            "author": author,
-            "descr": descr,
-            "genre": genre,
-            'form': form
         }
     )
