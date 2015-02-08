@@ -5,6 +5,7 @@ import utils
 import blurb.utils
 import time
 import random
+import math
 
 config = {
     'access_key': 'AKIAJAEPJ2CLFMQOKA5A',
@@ -21,7 +22,7 @@ def getBooksFromAmazon():
     :return: Dictionary of {genre_id: [(title, author, descr)...]
     Retrieve the book data from Amazon with the API
     """
-    num_records = 300
+    num_records = 100
     genre_dict = getGenreId_GenreName(1000)
     node_ids_genre = genre_dict.keys()
     #node_ids_genre = [25]
@@ -90,15 +91,16 @@ def getRandomBooks(all_genre_dict):
     """
     #print "Randomness"
     all_random_tuples = []
-    i = 0
-    for gen_dict in all_genre_dict:
-        all_random_tuples.append(all_genre_dict[gen_dict])
+    num_books_each = all_genre_dict[all_genre_dict.keys[0]]
+    num_get = int(math.ceil(num_books_each * .04))
+    for genre in all_genre_dict:
+        all_random_tuples.append(all_genre_dict[genre][0:num_get])
     one_list = []
     for tup in all_random_tuples:
         for one_tup in tup:
             one_list.append(one_tup)
-
+    """
     per100 = len(one_list)
     per4 = 4.0/per100 * 100
-    final = int(round(per4))
-    return one_list[:final]
+    final = int(round(per4))"""
+    return one_list
