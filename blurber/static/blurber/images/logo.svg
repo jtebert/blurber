@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.24748737"
-     inkscape:cx="2081.2406"
-     inkscape:cy="-797.84231"
+     inkscape:cx="2457.0174"
+     inkscape:cy="-717.03011"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -256,7 +256,7 @@
        ry="0" />
     <text
        xml:space="preserve"
-       style="font-size:107.29714966000001652px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#bdc3c7;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto;opacity:0.96"
+       style="font-size:107.29714966000001652px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#7f8c8d;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto;opacity:0.95999999999999996"
        x="2226.302"
        y="454.03433"
        id="text3861"
@@ -265,7 +265,7 @@
          id="tspan3863"
          x="2226.302"
          y="454.03433"
-         style="fill:#bdc3c7">Make a Random Blurb</tspan></text>
+         style="fill:#7f8c8d">Make a Random Blurb</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:107.29714966px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto"
@@ -518,7 +518,7 @@
        sodipodi:linespacing="125%"
        transform="translate(1546.3583,-649.59857)"><tspan
          sodipodi:role="line"
-         id="tspan4195"></tspan></text>
+         id="tspan4195" /></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot4201"

@@ -22,7 +22,7 @@ def getBooksFromAmazon():
     :return: Dictionary of {genre_id: [(title, author, descr)...]
     Retrieve the book data from Amazon with the API
     """
-    num_records = 100
+    num_records = 300
     genre_dict = getGenreId_GenreName(1000)
     node_ids_genre = genre_dict.keys()
     #node_ids_genre = [25]
@@ -91,8 +91,10 @@ def getRandomBooks(all_genre_dict):
     """
     #print "Randomness"
     all_random_tuples = []
-    num_books_each = all_genre_dict[all_genre_dict.keys[0]]
-    num_get = int(math.ceil(num_books_each * .04))
+    num_books_each = len(all_genre_dict[all_genre_dict.keys()[0]])
+    print num_books_each
+    print type(num_books_each)
+    num_get = int(math.ceil(float(num_books_each) * .04))
     for genre in all_genre_dict:
         all_random_tuples.append(all_genre_dict[genre][0:num_get])
     one_list = []
