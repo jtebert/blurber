@@ -203,5 +203,3 @@ stop_words_str = "a about above after again against all am an and any are aren't
       "were weren't what what's when when's where where's which while who who's whom why why's with won't would wouldn't " \
       "you you'd you'll you're you've your yours yourself yourselves"
 stop_words = stop_words_str.split()
-
-print stop_words
