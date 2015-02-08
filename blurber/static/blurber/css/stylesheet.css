@@ -147,8 +147,13 @@ button[disabled], button[disabled]:hover {
     font-size: 0.95em;
 }
 
-h1.centered {
+.centered {
     text-align: center;
+}
+
+div.centered {
+    width: 50%;
+    margin: auto;
 }
 
 .blurb-space {

@@ -6,17 +6,25 @@
     <p>Have you ever wanted to read about a book that doesn't exist? Or maybe you just think book descriptions are too logical.</p>
     <p>Here's a tool perfectly suited to your eccentricity! Just pick a genre and you'll receive a probably-but-not-guaranteed-to-be unique book blurb, built on descriptions of real, live, <i>actual</i> books. If you're feeling particularly ambitious, for extra credit you can go ahead and write the book you get a blurb for.</p>
 
-    <a href="{% url 'blurb:genre_blurb' 'random' %}" class="big-button-link">Random Blurb</a>
+    {% if genres.count > 0 %}
+        <a href="{% url 'blurb:genre_blurb' 'random' %}" class="big-button-link">Random Blurb</a>
 
-    <h1 class="centered">Pick a genre:</h1>
-    <div class="tile-box">
-    {% for genre in genres %}
-        <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link floater">
-            <span>{{ genre.name }}</span>
-        </a>
-    {% endfor %}
-    <div class="breaker"></div>
-    </div>
+        <h1 class="centered">Pick a genre:</h1>
+        <div class="tile-box">
+        {% for genre in genres %}
+            <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link floater">
+                <span>{{ genre.name }}</span>
+            </a>
+        {% endfor %}
+        <div class="breaker"></div>
+        </div>
+    {% else %}
+        <div class="centered">
+            <h1>We'll be back!</h1>
+            <h4>Our blurb-izing is currently out of commision while we attempt to improve the disturbing accuracy of computer-created language.</h4>
+            <h4>Check back soon!</h4>
+        </div>
+    {% endif %}
 
     <div class="breaker"></div>
 {% endblock %}

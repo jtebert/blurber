@@ -34,7 +34,7 @@ def getBooksFromAmazon():
         #Expand the data set to thousands
         #inner_children = getCategoriesOfBooks(alphabet)
         #for child in inner_children:
-        time.sleep(1)
+        time.sleep(1.2)
         items = api.item_search('Books', BrowseNode=alphabet,ResponseGroup="EditorialReview,ItemAttributes,BrowseNodes")
         tup = ()
         count = 0
