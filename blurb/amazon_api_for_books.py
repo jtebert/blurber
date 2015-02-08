@@ -98,4 +98,7 @@ def getRandomBooks(all_genre_dict):
         for one_tup in tup:
             one_list.append(one_tup)
 
-    return one_list
+    per100 = len(one_list)
+    per4 = 4.0/per100 * 100
+    final = int(round(per4))
+    return one_list[:final]
