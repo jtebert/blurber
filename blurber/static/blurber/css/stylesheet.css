@@ -49,7 +49,7 @@ html, body {
     padding: 1em;
     max-width: 100%;
     margin: auto;
-    margin-bottom: 2em;
+    margin-bottom: 0;
 }
 
 .tile-box {
@@ -73,7 +73,7 @@ a.big-button-link, a.small-button-link {
 
 a.narrow-button-link {
     font-size: 1.2em;
-    width: 8em;
+    width: 8.5em;
     display: inline-block;
 }
 
@@ -88,17 +88,17 @@ a.small-button-link {
 }
 a.small-button-link.floater {
     float: left;
-    width: 25%;
+    font-size: 1em;
+    width: 33%;
     padding:0;
     margin: 0;
-    height: 3em;
+    //height: 3em;
     background: none;
 }
 a.small-button-link.floater:hover{
     background: #f1c40f;
 }
 a.small-button-link.floater span {
-    //border:1px solid red;
     display: inline-block;
     margin: .75em .5em;
 }
@@ -106,18 +106,6 @@ a.small-button-link.floater span {
 a.big-button-link {
     font-size: 1.5em;
     width: 9em;
-}
-
-a.nav-link {
-    margin: 1em 1em 1em 0;
-    font-size: 1.2em;
-    font-weight: bold;
-    //color: #ecf0f1;
-    text-decoration: none;
-}
-
-a.nav-link:hover, a.nav-link:active {
-    //color: #f1c40f;
 }
 
 a.big-button-link:hover, a.small-button-link:hover, a.narrow-button-link:hover, a.big-button-link:active, a.small-button-link:active, a.narrow-button-link:active {
@@ -133,7 +121,7 @@ button[type=submit], .test-button {
     font-weight: bold;
     padding: .5em;
     font-size: 1.2em;
-    width: 9em;
+    width: 9.5em;
     display: inline-block;
     border: none;
 }

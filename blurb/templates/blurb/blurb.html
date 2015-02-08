@@ -5,11 +5,6 @@
 <form class="blurb_actions" method="POST" action="">
     {% csrf_token %}
 
-    <!--<input type="hidden" name="title" value="{{ title }}"/>
-    <input type="hidden" name="author" value="{{ author }}"/>
-    <input type="hidden" name="descr" value="{{ descr }}"/>
-    <input type="hidden" name="genre" value="{{ genre_str }}"/>-->
-
     <a class="narrow-button-link" href="{% url 'index' %}">
         <span><i class="fa fa-arrow-left fa-fw"></i> Go Back</span>
     </a>
