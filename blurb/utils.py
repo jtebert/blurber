@@ -154,14 +154,17 @@ def get_all_genres():
     from blurb.models import Genre
     genres = Genre.objects.all()
     genre_dict = {}
-    print "get AAAAALLLL the genres!!!!"
     for genre in genres:
-        print "WWWWWWWWWWHEEEEEEEEEEEEEEEE"
         print genre_dict[genre.id]
         genre_dict[genre.id] = genre.name
     return genre_dict
 
 def kill_chars(str2):
+    """
+    :param str2: String
+    :return: Cleaned String
+    Removes specified characters from string (replaces with spaces)
+    """
     i = 0
     for c in str2:
         if c == '-' or c == '/' or c == '\"':
