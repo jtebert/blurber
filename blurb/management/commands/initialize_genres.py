@@ -22,9 +22,19 @@ class Command(BaseCommand):
         # Create Genre object and add to database
         genre_names_dict = blurb.amazon_api_for_books.getGenreId_GenreName(1000)
 
+        random_genre = Genre(
+            id=99999999999,
+            slug=slugify(u'random'),
+            name="Random",
+            title_options=random_genre[0],
+            author_options=random_genre[1],
+            descr_options=random_genre[2],
+        )
+        random_genre.save()
+
         for genre_id in genre_dict.keys():
             genre_temp = Genre(
-                id = genre_id,
+                id = int(genre_id),
                 slug = slugify(unicode(genre_names_dict[genre_id])),
                 name = genre_names_dict[genre_id],
                 title_options = genre_dict[genre_id][0],
@@ -32,12 +42,3 @@ class Command(BaseCommand):
                 descr_options = genre_dict[genre_id][2],
             )
             genre_temp.save()
-        random_genre = Genre(
-            id = 99999999999,
-            slug = slugify(u'random'),
-            name = "Random",
-            title_options = random_genre[0],
-            author_options = random_genre[1],
-            descr_options = random_genre[2],
-        )
-        random_genre.save()
