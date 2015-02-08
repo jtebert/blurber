@@ -11,7 +11,7 @@ def index(request):
     sorted_genres = genre_dict.items()
     sorted_genres = sorted(sorted_genres, key=lambda x: x[1])
     """
-    genres = Genre.objects.all()
+    genres = Genre.objects.exclude(slug='random')
 
     return render(
         request, 'blurber/index.html', {

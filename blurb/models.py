@@ -11,6 +11,9 @@ class Genre(models.Model):
     author_options = models.TextField()
     descr_options = models.TextField()
 
+    class Meta:
+        ordering = ['name']
+
     def __unicode__(self):
         return self.name
 
