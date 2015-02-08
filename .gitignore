@@ -2,3 +2,4 @@
 staticfiles
 .idea/
 *~
+db.sqlite3

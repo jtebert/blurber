@@ -65,16 +65,12 @@ def genre_blurb(request, pk):
 
 def blurb_permalink(request, pk):
     blurb = get_object_or_404(Blurb, pk=pk)
-    title = ""  # TODO: Fill these in from correct Blurb
-    author = ""
-    descr = ""
-    genre_str = ""
     return render(
         request, 'blurb/blurb.html', {
-            "title": title,
-            "author": author,
-            "descr": descr,
-            "genre_str": genre_str,
+            "title": blurb.title,
+            "author": blurb.author,
+            "descr": blurb.descr,
+            "genre_str": blurb.genre_str,
         }
     )
 
