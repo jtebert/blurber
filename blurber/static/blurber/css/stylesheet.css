@@ -67,7 +67,7 @@ a.big-button-link, a.small-button-link, a.narrow-button-link {
 }
 
 a.big-button-link, a.small-button-link {
-    margin: 1em auto;
+    margin: 0 0 1.5em 0;
     display: block;
 }
 
@@ -94,6 +94,7 @@ a.small-button-link.floater {
     margin: 0;
     //height: 3em;
     background: none;
+    text-align: left;
 }
 a.small-button-link.floater:hover{
     background: #f1c40f;

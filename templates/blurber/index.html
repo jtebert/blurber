@@ -3,13 +3,15 @@
 
 
 {% block content %}
+    {% if genres.count > 0 %}
+        <a href="{% url 'blurb:genre_blurb' 'random' %}" class="big-button-link">Random Blurb</a>
+    {% endif %}
+
     <p>Have you ever wanted to read about a book that doesn't exist? Or maybe you just think book descriptions are too logical.</p>
     <p>Here's a tool perfectly suited to your eccentricity! Just pick a genre and you'll receive a probably-but-not-guaranteed-to-be unique book blurb, built on descriptions of real, live, <i>actual</i> books. If you're feeling particularly ambitious, for extra credit you can go ahead and write the book you get a blurb for.</p>
 
     {% if genres.count > 0 %}
-        <a href="{% url 'blurb:genre_blurb' 'random' %}" class="big-button-link">Random Blurb</a>
-
-        <h1 class="centered">Pick a genre:</h1>
+        <h1>Pick a genre:</h1>
         <div class="tile-box">
         {% for genre in genres %}
             <a href="{% url 'blurb:genre_blurb' genre.slug %}" class="small-button-link floater">
