@@ -21,7 +21,7 @@ def getBooksFromAmazon():
     :return: Dictionary of {genre_id: [(title, author, descr)...]
     Retrieve the book data from Amazon with the API
     """
-    num_records = 100
+    num_records = 4
     genre_dict = getGenreId_GenreName(1000)
     node_ids_genre = genre_dict.keys()
     #node_ids_genre = [25]
