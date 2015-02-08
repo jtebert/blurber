@@ -4,7 +4,7 @@ from utils import pkgen
 # Create your models here.
 
 class Genre(models.Model):
-    id = models.PositiveIntegerField(primary_key=True)
+    id = models.BigIntegerField(primary_key=True)
     slug = models.SlugField(max_length=50, unique=True)
     name = models.CharField(max_length=100)
     title_options = models.TextField()
