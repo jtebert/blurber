@@ -159,13 +159,17 @@ def get_all_genres():
         genre_dict[genre.id] = genre.name
     return genre_dict
 
-def kill_chars(str):
+def kill_chars(str2):
     i = 0
-    for c in str:
+    for c in str2:
         if c == '-' or c == '/' or c == '\"':
-            str = str[:i] + " " + str[i+1:]
-            i -= 1
-    return str
+            if i == 0:
+                str2 = str2[1:]
+                i -= 1
+            else:
+                str2 = str2[:i] + " " + str2[i+1:]
+                i -= 1
+    return str2
 
 def pkgen():
     """
