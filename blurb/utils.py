@@ -169,10 +169,12 @@ def kill_chars(line):
     :return: Cleaned String
     Removes specified characters from string (replaces with spaces)
     """
-    invalid_characters = '[-—/"”•"“]'
 
-    import re
-    line = re.sub(invalid_characters, '', line)
+    invalid_characters = "[-—/\"”•\"“\']"
+    for c in invalid_characters:
+        line = line.replace(c,"")
+
+    return line
 
 def pkgen():
     """
