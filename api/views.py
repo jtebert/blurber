@@ -8,6 +8,10 @@ from django.core import serializers
 from django.http import JsonResponse
 
 
+def docs(request):
+    return render(request, "api/docs.html", {})
+
+
 def genres(request):
     """
     List the slugs and names of all the available genres
@@ -25,13 +29,17 @@ def genre_blurb(request, slug, will_save):
     genre = get_object_or_404(Genre, slug=slug)
     title, author, descr = utils.generate_from_genre(genre)
     genre_str = genre.name
-    blurb_json = {
+    blurb_vals = {
         'title': title,
         'author': author,
         'descr': descr,
         'genre_str': genre_str,
     }
-    if will_save != 0:
+    blurb_json = {
+                      'model': "blurb.blurb",
+                      'fields': blurb_vals,
+                  }
+    if will_save != "0":
         blurb_obj = Blurb(
             title = title,
             author = author,
@@ -39,11 +47,13 @@ def genre_blurb(request, slug, will_save):
             genre_str = genre_str
         )
         blurb_obj.save()
-        blurb_json['permalink_pk'] = blurb_obj.id
-        return JsonResponse(blurb_json)
+        blurb_json['pk'] = blurb_obj.id
+    return JsonResponse(blurb_json)
 
 def blurb_permalink(request, pk):
     blurb = get_object_or_404(Blurb, pk=pk)
     #return JsonResponse([blurb, ], safe=False)
     #return JsonResponse(serializers.serialize("json", [blurb,]), safe=False)
-    return HttpResponse(serializers.serialize("json", [blurb,]))
+    blurb_json = serializers.serialize("json", [blurb,])[1:-1]
+    #return JsonResponse(blurb_json)
+    return HttpResponse(blurb_json)
