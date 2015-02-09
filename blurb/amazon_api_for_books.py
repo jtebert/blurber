@@ -8,8 +8,8 @@ import random
 import math
 
 config = {
-    'access_key': 'AKIAJAEPJ2CLFMQOKA5A',
-    'secret_key': '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',
+    'access_key': <access_key>,
+    'secret_key': '<secret-key>',
     'associate_tag': 'blurber-20',
     'locale': 'us'
 }
