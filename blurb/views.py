@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from models import Genre, Blurb
 from forms import *
 import blurb.utils
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
 
 
@@ -44,7 +44,10 @@ def genre_blurb(request, slug):
     )
 
 def blurb_permalink(request, pk):
-    blurb = get_object_or_404(Blurb, pk=pk)
+    try:
+        blurb = get_object_or_404(Blurb, pk=pk)
+    except:
+        raise Http404("Blurb does not exist")
 
     if request.method == "POST" and "new_blurb" in request.POST:
         print "GOT HERE"
