@@ -1,6 +1,8 @@
-# Blurber: a web app for book blurbs.
+# Blurber: a web app to make book blurbs.
 
 ###[Try it here](http://blurber.herokuapp.com/)
+
+*This project was originally created at HackBeanpot 2015, where it was a finalist.*
 
 People never seem to find time to read books anymore, or even read the blurbs on the book covers. We've created a solution by creating new book blurbs for all kinds of book genres. Select a genre to generate a random blurb, or take your chances with a blurb from everything under the sun (or everything on Amazon). If you find a one you like, you can create a permalink to share it or save it forever.
 
