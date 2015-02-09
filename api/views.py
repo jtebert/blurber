@@ -27,8 +27,11 @@ def genres(request):
 
 def genre_blurb(request, slug, will_save):
     descr_length = int(request.GET.get('descr_length', 75))
+    descr_depth = int(request.GET.get('descr_depth', 2))
+    if descr_depth not in range(1,4):
+        descr_depth = 2
     genre = get_object_or_404(Genre, slug=slug)
-    title, author, descr = utils.generate_from_genre(genre, descr_length)
+    title, author, descr = utils.generate_from_genre(genre, descr_length, descr_depth)
     genre_str = genre.name
     blurb_vals = {
         'title': title,

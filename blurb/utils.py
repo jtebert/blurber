@@ -85,8 +85,6 @@ def generate_description(m, descr_length=75):
     :param m: Markov object for description values
     :return: String of newly generated title
     """
-    print "MAX_LENGTH: " + str(descr_length)
-    print type(descr_length)
     def end(s):
         interpunction = (".", "!", "?")
         if s[len(s)-1] in interpunction and len(s.split()) > descr_length:
@@ -110,7 +108,7 @@ def generate_author(m):
 
     return dehtml(m.generate(endf=end))
 
-def generate_all(strings, max_length=75):
+def generate_all(strings, max_length=75, descr_depth=2):
     """
     :param strings: (all_titles, all_authors, all_descr)
     :return: (new_title, new_author, new_descr)
@@ -118,7 +116,7 @@ def generate_all(strings, max_length=75):
     """
     m1 = Markov(prob=True, level=1)
     m2 = Markov(prob=True, level=1)
-    m3 = Markov(prob=True, level=2)
+    m3 = Markov(prob=True, level=descr_depth)
 
     m1.parse(strings[0])
     m2.parse(strings[1])
@@ -140,7 +138,7 @@ def generate_all(strings, max_length=75):
     return (t_string,a_string,d_string)
 
 
-def generate_from_genre(genre, max_length=75):
+def generate_from_genre(genre, descr_length=75, descr_depth=2):
     """
     :param genre: Genre model object
     :return: newly generated tuple (title, author, description) for the genre
@@ -149,7 +147,7 @@ def generate_from_genre(genre, max_length=75):
     strs = (genre.title_options, genre.author_options, genre.descr_options)
     #print strs
 
-    return generate_all(strs, max_length)
+    return generate_all(strs, descr_length, descr_depth)
 
 
 def get_all_genres():
