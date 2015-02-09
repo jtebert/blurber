@@ -15,8 +15,9 @@
     <p>Get the names and slugs of all available genres. (Random, incorporating books all genres, is considered a genre.) The slugs are used to specify the genre in the URL for creating blurbs.</p>
 
     <h2>Create blurb</h2>
-    <p class="mono">http://blurber.herokuapp.com/api/GENRE_SLUG/SAVE/</p>
+    <p class="mono">http://blurber.herokuapp.com/api/GENRE_SLUG/SAVE/?descr_length=NUM</p>
     <p>Use the slug of a genre (<span class="mono">GENRE_SLUG</span> to generate a blurb. <span class="mono">SAVE</span> is a 1 or 0 telling whether or not to save a permalink to the blurb on the site. If saved, the JSON will include the key (<span class="mono">pk</span>) for the blurb.</p>
+    <p>The optional parameter <span class="mono">descr_length</span></p> uses <span class="mono">NUM</span> as the minimum length of the blurb description. The description will end after the first sentence-ending punctuation after <span class="mono">NUM</span> words.
 
     <h2>Retrieve blurb</h2>
     <p class="mono">http://blurber.herokuapp.com/api/p/PK</p>

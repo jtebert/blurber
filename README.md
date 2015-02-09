@@ -22,6 +22,7 @@ Get the names and slugs of all available genres. (Random, incorporating all genr
 `http://blurber.herokuapp.com/api/<genre_slug>/<save>/`
 
 Use the slug of a genre to generate a blurb. `<save>` is a 1 or 0 telling whether or not to save a permalink to the blurb on the site.
+The optional parameter `descr_length` uses`NUM` as the minimum length of the blurb description. The description will end after the first sentence-ending punctuation after `NUM` words.
 
 `http://blurber.herokuapp.com/api/p/<pk>`
 
