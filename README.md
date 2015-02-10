@@ -28,9 +28,8 @@ Get the names and slugs of all available genres. (Random, incorporating books al
 ###Create blurb
 
 `http://www.blurber.io/api/GENRE_SLUG/SAVE/`
-Use the slug of a genre (`GENRE_SLUG`) to generate a blurb. `SAVE` is a 1 or 0 telling whether or not to save a permalink to the blurb on the site. If saved, the JSON will include the key (`pk`) for the blurb.
 
-<p>The optional parameter <span class="mono">descr_length</span></p> uses <span class="mono">NUM</span> as the minimum length of the blurb description. The description will end after the first sentence-ending punctuation after <span class="mono">NUM</span> words.
+Use the slug of a genre (`GENRE_SLUG`) to generate a blurb. `SAVE` is a 1 or 0 telling whether or not to save a permalink to the blurb on the site. If saved, the JSON will include the key (`pk`) for the blurb.
 
 ####Query Parameters
 
